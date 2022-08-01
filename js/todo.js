@@ -9,13 +9,13 @@ let toDos = [];
 
 function saveToDos() {
     localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
-    // localStorage에 todo를 저장하는데, Array 즉 리스트 형식으로 저장하기 위해, 모든 유형의 코드를 string으로 바꿔주는 JSON.stringify()를 사용.
+    // localStorage에 todo를 저장하는데, 데이터를 Array형식으로 저장하기 위해, JSON.stiringify 함수를 통해 모든 유형의 코드를 string으로 취급되게 함
 }
 
 function deleteToDo(event) {
     const li = event.target.parentElement;
     li.remove();
-    // 클릭이라는 event가 일어난 삭제버튼이 target이 되고 해당 버튼의 부모 element인 <li>를 지워주는 코드
+    // 클릭 event가 일어난 삭제버튼이 target이 되고 해당 버튼의 부모 element인 <li>를 지워주는 코드
     toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
     // filter 함수를 이용하여 toDo의 id값이 다르면(false) 남기고, 같으면(true) 삭제하는 코드,
     // toDo.id는 String type, li.id는 number type이기 때문에 문자열 인자를 파싱하는 parseInt 코드 추가.
